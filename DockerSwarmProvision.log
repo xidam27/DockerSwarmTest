@@ -1,0 +1,34 @@
+Docker Machine.txt
+
+ssh-keygen
+echo "ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAheBO4/V9K8bhe7lzF0RCxkTQ0WrfciA6obpTg9omSygMmR/8Iqty8l8VDy5SRnOLrkZM8cuOTbVvAuUbQ/eMj7/eXCT+3ctpt4Z/2hOtNENperoxFPlNzfBcl9NsicAXjXkpp4DS5p2phEwp5KqfVVpNNGtpEg4iFwIb9LclvYYHtCN+vKCDd3mWonXg+ZSaYY9pjRuedsJd0hfwHtfkcOdvT4j4UCfEgWBp1RnsQYxd88GvSyjmz9VIp9a11n4Yo8u68QiaThCg2yKP7IsnziouIm6AM5P2AgY5+N32tuqbkA71F5Tf7ss35bY7+/TDEILWtL9vvVipmDO2cNnZQw== rsa-key-20160909" >> /home/robert/.ssh/authorized_keys
+
+sudo sh -c 'echo "deb https://apt.dockerproject.org/repo ubuntu-trusty main"  > /etc/apt/sources.list.d/docker.list'
+
+sudo apt-get update
+sudo apt-get install apt-transport-https ca-certificates
+sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+
+sudo apt-get install -y linux-image-extra-$(uname -r) linux-image-extra-virtual
+
+sudo apt-get update
+sudo apt-get install docker-engine -y
+sudo docker run hello-world
+sudo usermod $(whoami) -aG docker
+
+ sudo sh -c 'hostname=worker2; sed -i 's/ubuntu/${hostname}/g' /etc/hosts && sed -i 's/ubuntu/${hostname}/g' /etc/hostname'
+
+ MANAGER1
+ docker swarm init --advertise-addr <MANAGER-IP>
+
+If you don’t have the command available, you can run the following command on a manager node to retrieve the join command for a worker:
+
+$ docker swarm join-token worker
+
+WORKERS
+docker swarm init 
+
+$ docker node ls
+
+ID                           HOSTNAME  STATUS  AVAILABILITY  MANAGER STATUS
+dxn1zf6l61qsb1josjja83ngz *  manager1  Ready   Active        Leader
