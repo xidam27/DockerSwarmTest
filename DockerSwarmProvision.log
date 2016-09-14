@@ -32,3 +32,23 @@ $ docker node ls
 
 ID                           HOSTNAME  STATUS  AVAILABILITY  MANAGER STATUS
 dxn1zf6l61qsb1josjja83ngz *  manager1  Ready   Active        Leader
+
+
+$ docker service create \
+  --replicas 3 \
+  --name redis \
+  --update-delay 10s \
+  xidam/swarmtest
+
+On the swarmtest
+# cat /usr/local/bin/nginx.sh
+#!/bin/sh
+
+cat /proc/self/cgroup | head -1 | cut -f 3 -d "/" > /usr/share/nginx/html/index.html
+nginx -g 'daemon off;'
+
+0u6a4s31ybk7yw2wyvtikmu50
+
+GET /index.html HTTP/1.1
+host: localhost
+

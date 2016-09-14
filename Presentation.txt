@@ -1,0 +1,17 @@
+Presentation.txt
+
+
+We don't give birth to a matured product, that's hard, instead we have a vision of what/who/where (www) are in the future. 
+This vision is in the DNA of our product which will grow and evolve at the heart beat of each sprint.
+
+DevOps is in the center of this organic entity, connecting creativity and mobility in order to deliver the developed elements of this vision.
+
+In a demanding times we need systems that scales on-demand. While there are many solutions to the same problem we should not forget to keep things stupid simple by reducing waste so we have a clean, lean and efficient platform.
+
+
+Docker
+Docker swarm mode
+Nginx
+Consul
+
+
